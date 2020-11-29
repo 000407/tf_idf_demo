@@ -15,8 +15,7 @@ class TfIdf():
 		docs_with_term = [ d for d in self.docs.values() if term in d['keywords'] ]
 
 		df = len(docs_with_term)
-		# Not sure of which of the following two is correct
-		# return np.log(len(self.docs) / (df + 1)) 
+		# https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction
 		return np.log( (len(self.docs) + 1) / (df + 1) ) + 1
 
 	def tf_idf(self, term, corpus_id):
